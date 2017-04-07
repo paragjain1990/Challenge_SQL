@@ -1,0 +1,12 @@
+SELECT id ,(aprice+bprice)
+from	
+(
+SELECT a.id as id,a.price as aprice,b.price bprice FROM 
+`babayproduct` a,
+`babayproduct` b
+	WHERE trim(a.name) = ("teddy_bear") 
+    and trim(b.name) = ("baby_powder") 
+    and a.id=b.id
+) as   abc
+order by 2  
+LIMIT 1
